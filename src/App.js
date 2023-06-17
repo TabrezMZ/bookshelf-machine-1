@@ -1,23 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { MainPage } from './pages/Main';
+import { SearchPage } from './pages/Search';
+import { useState } from 'react';
+import { allBooks } from './Data';
 
 function App() {
+  const [ allBooksData, setAllBooksData] = useState(allBooks)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path='/' element={<MainPage allBooksData={allBooksData} setAllBooksData={setAllBooksData}/>} />
+        <Route path='/search' element={<SearchPage allBooksData={allBooksData} setAllBooksData={setAllBooksData}/>} />
+      </Routes>
     </div>
   );
 }
