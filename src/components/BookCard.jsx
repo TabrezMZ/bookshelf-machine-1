@@ -39,8 +39,8 @@ export const BookCard = ({_id,img,name,author,category,isCategory, allBooksData,
           <select  onChange={(e)=> moveBooks(e.target.value, _id)} className="form-select" aria-label="Default select example">
             <option value='Open this select Category' >Open this select Category</option>
             <option value="Currently Reading"> {'Currently Reading' === category && isCategory && '☑️'} Currently Reading</option>
-            <option value="Read">{'Read' === category && '☑️'}Read</option>
-            <option  value="Want to Read">{'Want to Read' === category && '☑️'}Want to Read</option>
+            <option value="Read">{'Read' === category && isCategory &&'☑️'}Read</option>
+            <option  value="Want to Read">{'Want to Read' === category && isCategory && '☑️'}Want to Read</option>
             <option value="None">None</option>
           </select>
         </div>
